@@ -43,7 +43,27 @@ export default function AdminTable({ submissions }: { submissions: Submission[] 
 
   return (
     <>
-      <div className="overflow-x-auto">
+      <ul className="md:hidden flex flex-col">
+        {submissions.map((submission) => (
+          <li key={submission.id} className="border-b border-border py-4 flex flex-col gap-1">
+            <div className="flex items-start justify-between gap-3">
+              <p className="text-primary">{submission.name}</p>
+              <button
+                type="button"
+                onClick={() => setActive(submission)}
+                className="shrink-0 font-mono uppercase text-xs tracking-widest text-muted transition-colors duration-200 hover:text-accent"
+              >
+                View
+              </button>
+            </div>
+            <p className="font-mono text-xs text-muted break-all">{submission.email}</p>
+            <p className="text-sm text-muted">{truncate(submission.message, 80)}</p>
+            <p className="font-mono text-xs text-muted/70">{formatDate(submission.created_at)}</p>
+          </li>
+        ))}
+      </ul>
+
+      <div className="hidden md:block overflow-x-auto">
         <table className="w-full min-w-[640px] text-left border-collapse">
           <thead>
             <tr className="border-b border-border">
@@ -91,7 +111,7 @@ export default function AdminTable({ submissions }: { submissions: Submission[] 
           role="dialog"
           aria-modal="true"
           aria-label={`Message from ${active.name}`}
-          className="fixed inset-0 z-50 flex items-center justify-center p-6"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
         >
           <button
             type="button"
@@ -100,12 +120,12 @@ export default function AdminTable({ submissions }: { submissions: Submission[] 
             className="absolute inset-0 bg-black/40 backdrop-blur-sm cursor-default"
           />
 
-          <div className="relative w-full max-w-lg max-h-[80vh] overflow-y-auto bg-background border border-border p-8 md:p-10">
+          <div className="relative w-full max-w-lg max-h-[80vh] overflow-y-auto bg-background border border-border p-6 sm:p-8 md:p-10">
             <button
               type="button"
               onClick={() => setActive(null)}
               aria-label="Close"
-              className="absolute top-6 right-6 text-muted transition-colors duration-200 hover:text-accent"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 text-muted transition-colors duration-200 hover:text-accent"
             >
               <X size={18} strokeWidth={1.5} />
             </button>
