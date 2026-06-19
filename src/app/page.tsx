@@ -10,8 +10,8 @@ export default function Home() {
       <Nav />
       <main className="flex-1">
         <Contact />
-        <Services />
         <About />
+        <Services />
       </main>
       <Footer />
     </div>
