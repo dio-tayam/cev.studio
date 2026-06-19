@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
+import { Eye, EyeOff } from 'lucide-react'
 import Logo from '@/components/Logo'
 
 const fieldClasses =
@@ -13,6 +14,7 @@ export default function AdminLoginPage() {
   const router = useRouter()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -45,7 +47,7 @@ export default function AdminLoginPage() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6">
       <div className="mb-6">
-        <Logo />
+        <Logo className="h-9 w-auto" />
       </div>
 
       <form onSubmit={handleSubmit} className="w-full max-w-sm flex flex-col gap-8">
@@ -71,22 +73,36 @@ export default function AdminLoginPage() {
           <label htmlFor="password" className={labelClasses}>
             Password
           </label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="••••••••"
-            className={fieldClasses}
-            autoComplete="current-password"
-          />
+          <div className="relative">
+            <input
+              id="password"
+              name="password"
+              type={showPassword ? 'text' : 'password'}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="••••••••"
+              className={`${fieldClasses} pr-8`}
+              autoComplete="current-password"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword((value) => !value)}
+              aria-label={showPassword ? 'Hide password' : 'Show password'}
+              className="absolute right-0 top-1/2 -translate-y-1/2 text-muted transition-colors duration-200 hover:text-accent"
+            >
+              {showPassword ? (
+                <EyeOff size={16} strokeWidth={1.5} />
+              ) : (
+                <Eye size={16} strokeWidth={1.5} />
+              )}
+            </button>
+          </div>
         </div>
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-accent text-black font-mono uppercase tracking-widest py-4 transition-opacity duration-200 hover:opacity-90 disabled:opacity-60"
+          className="w-full bg-gradient-to-r from-accent to-[#e3ff80] text-black font-mono uppercase tracking-widest py-4 transition-opacity duration-200 hover:opacity-90 disabled:opacity-60"
         >
           {loading ? 'Signing in…' : 'Sign in'}
         </button>

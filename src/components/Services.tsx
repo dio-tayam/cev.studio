@@ -39,7 +39,7 @@ export default function Services() {
             <Reveal key={service.number} delay={index * 80}>
               <li className="group relative border-b border-border overflow-hidden">
                 <span
-                  className="absolute inset-y-0 left-0 w-0 bg-accent/[0.06] transition-[width] duration-500 ease-out group-hover:w-full"
+                  className="absolute inset-y-0 left-0 w-0 bg-surface/80 transition-[width] duration-500 ease-out group-hover:w-full"
                   aria-hidden
                 />
                 <div className="relative flex flex-col md:flex-row md:items-baseline md:justify-between gap-3 py-8 md:py-10 px-0 transition-[padding] duration-500 ease-out group-hover:px-6">

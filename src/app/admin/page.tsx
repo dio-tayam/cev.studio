@@ -16,8 +16,8 @@ export default async function AdminPage() {
   const submissions = (data ?? []) as Submission[]
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-24">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-12">
+    <div className="max-w-6xl mx-auto px-6 py-16">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-10">
         <div>
           <h1 className="text-2xl text-primary">Submissions</h1>
           <p className="mt-1 font-mono text-xs text-muted">

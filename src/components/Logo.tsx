@@ -1,8 +1,13 @@
-export default function Logo() {
+import Image from 'next/image'
+
+export default function Logo({ className = 'h-7 w-auto' }: { className?: string }) {
   return (
-    <span className="tracking-tight text-lg lowercase">
-      <span className="font-normal text-primary">cev.</span>
-      <span className="font-light font-mono text-primary">studio</span>
-    </span>
+    <Image
+      src="/final-logo.png"
+      alt="cev.studio"
+      width={1500}
+      height={359}
+      className={className}
+    />
   )
 }

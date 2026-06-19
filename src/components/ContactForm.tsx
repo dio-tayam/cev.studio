@@ -8,7 +8,7 @@ type Status = 'idle' | 'loading' | 'success' | 'error'
 type FieldErrors = Partial<Record<'name' | 'email' | 'message', string>>
 
 const fieldClasses =
-  'w-full bg-transparent border-b border-border px-3 py-3 text-primary placeholder:text-muted focus:outline-none focus:border-accent focus:shadow-[0_1px_12px_-2px_rgba(200,255,0,0.35)] transition-[color,border-color,box-shadow] duration-200'
+  'w-full bg-transparent border-b border-border px-3 py-3 text-primary placeholder:text-muted focus:outline-none focus:border-accent focus:shadow-[0_1px_12px_-2px_rgba(179,230,17,0.35)] transition-[color,border-color,box-shadow] duration-200'
 
 const labelClasses = 'block font-mono uppercase text-xs tracking-widest text-muted mb-2 px-3'
 
@@ -153,7 +153,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="w-full bg-accent text-black font-mono uppercase tracking-widest py-4 transition-all duration-200 hover:opacity-90 hover:shadow-[0_0_32px_-4px_rgba(200,255,0,0.5)] disabled:opacity-60 disabled:shadow-none"
+          className="w-full bg-gradient-to-r from-accent to-[#e3ff80] text-black font-mono uppercase tracking-widest py-4 transition-all duration-200 hover:opacity-90 hover:shadow-[0_0_32px_-4px_rgba(179,230,17,0.5)] disabled:opacity-60 disabled:shadow-none"
         >
           {status === 'loading' ? 'Sending…' : 'Send it →'}
         </button>

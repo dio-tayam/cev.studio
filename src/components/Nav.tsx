@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import Logo from './Logo'
-import ThemeToggle from './ThemeToggle'
 
 const links = [
   { href: '/', label: 'Home' },
@@ -33,7 +32,7 @@ export default function Nav() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled || open
-          ? 'backdrop-blur-md border-b border-border bg-background/70 shadow-[0_1px_0_0_rgba(200,255,0,0.06)]'
+          ? 'backdrop-blur-md border-b border-border bg-background/70 shadow-[0_1px_0_0_rgba(179,230,17,0.06)]'
           : 'border-b border-transparent'
       }`}
     >
@@ -50,31 +49,28 @@ export default function Nav() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-1">
-          <ThemeToggle />
-          <button
-            type="button"
-            onClick={() => setOpen((value) => !value)}
-            aria-label={open ? 'Close menu' : 'Open menu'}
-            aria-expanded={open}
-            className="md:hidden relative h-8 w-8 flex items-center justify-center text-muted transition-colors duration-200 hover:text-accent"
-          >
-            <Menu
-              size={18}
-              strokeWidth={1.5}
-              className={`absolute transition-all duration-300 ease-out ${
-                open ? 'rotate-90 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'
-              }`}
-            />
-            <X
-              size={18}
-              strokeWidth={1.5}
-              className={`absolute transition-all duration-300 ease-out ${
-                open ? 'rotate-0 scale-100 opacity-100' : '-rotate-90 scale-0 opacity-0'
-              }`}
-            />
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={() => setOpen((value) => !value)}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          className="md:hidden relative h-8 w-8 flex items-center justify-center text-muted transition-colors duration-200 hover:text-accent"
+        >
+          <Menu
+            size={18}
+            strokeWidth={1.5}
+            className={`absolute transition-all duration-300 ease-out ${
+              open ? 'rotate-90 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'
+            }`}
+          />
+          <X
+            size={18}
+            strokeWidth={1.5}
+            className={`absolute transition-all duration-300 ease-out ${
+              open ? 'rotate-0 scale-100 opacity-100' : '-rotate-90 scale-0 opacity-0'
+            }`}
+          />
+        </button>
       </div>
 
       <nav

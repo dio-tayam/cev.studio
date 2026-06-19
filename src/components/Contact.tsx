@@ -20,7 +20,7 @@ export default function Contact() {
       />
 
       <div
-        className="absolute top-[36%] right-[-12%] h-[34rem] w-[34rem] rounded-full bg-accent/10 blur-[140px] animate-pulse-glow"
+        className="absolute bottom-[-14rem] left-1/2 -translate-x-1/2 h-[28rem] w-[44rem] rounded-full bg-gradient-to-t from-accent/35 via-surface/60 to-transparent blur-[120px] animate-pulse-glow"
         aria-hidden
       />
 
@@ -53,7 +53,7 @@ export default function Contact() {
             </div>
 
             <div
-              className="border border-border bg-surface/50 backdrop-blur-sm p-8 md:p-10 animate-fade-in-up"
+              className="border border-border bg-white/[0.02] backdrop-blur-sm p-8 md:p-10 animate-fade-in-up"
               style={{ animationDelay: '200ms' }}
             >
               <ContactForm />
